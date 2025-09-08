@@ -61,6 +61,10 @@ bool isValidNumber() {
     return true;
 }
 
+bool isNumberInRange(int n, int minValue, int maxValue){
+    return n >= minValue && n <= maxValue;
+}
+
 int main() {
     return 0;
 }
