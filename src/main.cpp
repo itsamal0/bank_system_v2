@@ -65,6 +65,15 @@ bool isNumberInRange(int n, int minValue, int maxValue){
     return n >= minValue && n <= maxValue;
 }
 
+int readValidChoice(int initialChoice) {  
+    int choice = initialChoice;  
+    while (!isValidNumber() || !isNumberInRange(choice, 1, 6)) {  
+        cout << "Invalid choice! Please enter a valid number between 1 and 6: ";  
+        cin >> choice;  
+    }  
+    return choice;  
+}
+
 int main() {
     return 0;
 }
