@@ -81,6 +81,47 @@ int readMenuChoice() {
     return readValidChoice(choice);  
 }
 
+void bankSystem() {
+    int choice = 0;
+
+    do {
+        system("cls");
+
+        showMainMenu();
+        choice = readMenuChoice();
+
+        system("cls");
+
+        switch (choice) {
+        case SHOW_CLIENTS:
+            showClients();
+            break;
+        case ADD_CLIENT:
+            addClient();
+            break;
+        case DELETE_CLIENT:
+            deleteClient();
+            break;
+        case UPDATE_CLIENT:
+            updateClient();
+            break;
+        case FIND_CLIENT:
+            findClient();
+            break;
+        case EXIT_PROGRAM:
+            exitProgram();
+            break;
+        }
+
+        if (choice != EXIT_PROGRAM) {
+            cout << "\nPress any key to go back to main menu...";
+            system("pause >nul");
+        }
+
+    } while (choice != EXIT_PROGRAM);
+}
+
 int main() {
+    bankSystem();
     return 0;
 }
