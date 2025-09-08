@@ -74,6 +74,13 @@ int readValidChoice(int initialChoice) {
     return choice;  
 }
 
+int readMenuChoice() {  
+    int choice;  
+    cout << "Choose what do you want to do? [1 to 6]: ";  
+    cin >> choice;  
+    return readValidChoice(choice);  
+}
+
 int main() {
     return 0;
 }
