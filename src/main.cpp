@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 using namespace std;
 
 enum enMainMenuOptions {
@@ -51,6 +52,14 @@ void exitProgram() {
     system("pause >nul");
 }
 
+bool isValidNumber() {
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return false;
+    }
+    return true;
+}
 
 int main() {
     return 0;
