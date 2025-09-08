@@ -23,6 +23,34 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
+void showClients() {
+    cout << "Clients list:\n";
+}
+
+void addClient() {
+    cout << "Add a new client\n";
+}
+
+void deleteClient() {
+    cout << "Delete a client\n";
+}
+
+void updateClient() {
+    cout << "Update client info\n";
+}
+
+void findClient() {
+    cout << "Find a client\n";
+}
+
+void exitProgram() {
+    cout << "=================================\n";
+    cout << "          Program ends.\n";
+    cout << "=================================\n";
+    cout << "Press any key to close the program...";
+    system("pause >nul");
+}
+
 
 int main() {
     return 0;
