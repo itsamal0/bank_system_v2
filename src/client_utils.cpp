@@ -3,6 +3,7 @@
 #include <limits>
 #include "../include/bank_system/client_utils.h"
 #include "../../../helpers/io_utils.h"
+#include "../../../helpers/string_utils.h"
 using namespace std;
 
 namespace client_management {
@@ -48,4 +49,17 @@ namespace client_management {
         }
     }
    
+    // Convert a line from file to a client struct
+    stClient convertLineToRecord(string str, string separator = "#//#") {
+        stClient newClient;
+        vector<string> vString = string_utils::splitString(str, separator);
+
+        newClient.accountNumber  = vString[0];
+        newClient.pinCode        = vString[1];
+        newClient.name           = vString[2];
+        newClient.phone          = vString[3];
+        newClient.accountBalance = stod(vString[4]);
+
+        return newClient;
+    }
 }
