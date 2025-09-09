@@ -50,7 +50,7 @@ namespace client_management {
     }
    
     // Convert a line from file to a client struct
-    stClient convertLineToRecord(string str, string separator = "#//#") {
+    stClient convertLineToRecord(string str, string separator) {
         stClient newClient;
         vector<string> vString = string_utils::splitString(str, separator);
 
