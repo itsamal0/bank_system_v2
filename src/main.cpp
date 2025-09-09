@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include "../include/bank_system/client_management.h"
 using namespace std;
 
 enum enMainMenuOptions {
@@ -26,10 +27,6 @@ void showMainMenu() {
 
 void showClients() {
     cout << "Clients list:\n";
-}
-
-void addClient() {
-    cout << "Add a new client\n";
 }
 
 void deleteClient() {
@@ -97,7 +94,7 @@ void bankSystem() {
             showClients();
             break;
         case ADD_CLIENT:
-            addClient();
+            client_management::addClient();
             break;
         case DELETE_CLIENT:
             deleteClient();
