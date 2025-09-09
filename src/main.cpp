@@ -25,10 +25,6 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-void showClients() {
-    cout << "Clients list:\n";
-}
-
 void deleteClient() {
     cout << "Delete a client\n";
 }
@@ -91,7 +87,7 @@ void bankSystem() {
 
         switch (choice) {
         case SHOW_CLIENTS:
-            showClients();
+            client_management::showClients();
             break;
         case ADD_CLIENT:
             client_management::addClient();
