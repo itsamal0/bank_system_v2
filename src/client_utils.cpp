@@ -62,4 +62,22 @@ namespace client_management {
 
         return newClient;
     }
+
+    // Load clients data from file into a vector
+    vector<stClient> loadClientsDataFromFile(string fileName) {
+        vector<stClient> vClients;
+        fstream myFile;
+        myFile.open(fileName, ios::in);
+
+        if (myFile.is_open()) {
+            string line;
+            while (getline(myFile, line)) {
+                vClients.push_back(convertLineToRecord(line));
+            }
+            myFile.close();
+        }
+
+        return vClients;
+    }
+
 }
