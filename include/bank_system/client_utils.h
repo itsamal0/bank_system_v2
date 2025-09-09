@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 namespace client_management {
 
@@ -15,5 +16,7 @@ namespace client_management {
     std::string convertRecordToLine(stClient client, std::string separator = "#//#");
     stClient readNewClient();
     void addDataLineToFile(const std::string& fileName, const std::string& stDataLine);
+    stClient convertLineToRecord(std::string str, std::string separator = "#//#");
+    std::vector<stClient> loadClientsDataFromFile(std::string fileName);
 
 }
