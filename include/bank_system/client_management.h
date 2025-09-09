@@ -1,4 +1,5 @@
 #pragma once
+#include "add_client.h"
 #include <string>
 
 namespace client_management {
