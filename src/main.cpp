@@ -25,10 +25,6 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-void deleteClient() {
-    cout << "Delete a client\n";
-}
-
 void updateClient() {
     cout << "Update client info\n";
 }
@@ -93,7 +89,7 @@ void bankSystem() {
             client_management::addClient();
             break;
         case DELETE_CLIENT:
-            deleteClient();
+            client_management::deleteClient();
             break;
         case UPDATE_CLIENT:
             updateClient();
