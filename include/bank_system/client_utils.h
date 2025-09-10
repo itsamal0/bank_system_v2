@@ -10,6 +10,7 @@ namespace client_management {
         std::string name;
         std::string phone;
         double accountBalance;
+        bool markForDelete = false;
     };
     
     void printHeader(std::string headerText);
@@ -18,7 +19,7 @@ namespace client_management {
     void addDataLineToFile(const std::string& fileName, const std::string& stDataLine);
     stClient convertLineToRecord(std::string str, std::string separator = "#//#");
     std::vector<stClient> loadClientsDataFromFile(std::string fileName);
-    bool findClientByAccountNumber(const string& accountNumber, const vector<stClient>& vClients, stClient& client);
+    bool findClientByAccountNumber(const std::string& accountNumber, const std::vector<stClient>& vClients, stClient& client);
     void displayClientRecord(const stClient& client);
 
 }
