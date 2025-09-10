@@ -25,10 +25,6 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-void findClient() {
-    cout << "Find a client\n";
-}
-
 void exitProgram() {
     cout << "=================================\n";
     cout << "          Program ends.\n";
@@ -91,7 +87,7 @@ void bankSystem() {
             client_management::updateClient();
             break;
         case FIND_CLIENT:
-            findClient();
+            client_management::findClient();
             break;
         case EXIT_PROGRAM:
             exitProgram();
