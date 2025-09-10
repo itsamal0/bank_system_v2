@@ -91,4 +91,15 @@ namespace client_management {
         return false;
     }
 
+    
+    // Print a single client record
+    void displayClientRecord(const stClient& client) {
+        cout << "\nThe following are the account details:\n";
+        cout << "\nAccount Number : " << client.accountNumber;
+        cout << "\nPin Code       : " << client.pinCode;
+        cout << "\nName           : " << client.name;
+        cout << "\nPhone          : " << client.phone;
+        cout << "\nAccount Balance: " << client.accountBalance;
+    }
+
 }

@@ -19,5 +19,6 @@ namespace client_management {
     stClient convertLineToRecord(std::string str, std::string separator = "#//#");
     std::vector<stClient> loadClientsDataFromFile(std::string fileName);
     bool findClientByAccountNumber(const string& accountNumber, const vector<stClient>& vClients, stClient& client);
+    void displayClientRecord(const stClient& client);
 
 }
