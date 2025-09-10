@@ -25,10 +25,6 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-void updateClient() {
-    cout << "Update client info\n";
-}
-
 void findClient() {
     cout << "Find a client\n";
 }
@@ -92,7 +88,7 @@ void bankSystem() {
             client_management::deleteClient();
             break;
         case UPDATE_CLIENT:
-            updateClient();
+            client_management::updateClient();
             break;
         case FIND_CLIENT:
             findClient();
