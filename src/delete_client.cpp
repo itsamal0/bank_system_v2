@@ -40,6 +40,8 @@ namespace client_management {
         stClient client;
         char answer = 'n';
 
+        printHeader("Delete client screen");
+
         vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
         
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
