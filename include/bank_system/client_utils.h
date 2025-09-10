@@ -18,5 +18,6 @@ namespace client_management {
     void addDataLineToFile(const std::string& fileName, const std::string& stDataLine);
     stClient convertLineToRecord(std::string str, std::string separator = "#//#");
     std::vector<stClient> loadClientsDataFromFile(std::string fileName);
+    bool findClientByAccountNumber(const string& accountNumber, const vector<stClient>& vClients, stClient& client);
 
 }

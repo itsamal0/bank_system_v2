@@ -80,4 +80,15 @@ namespace client_management {
         return vClients;
     }
 
+    // Find a client by account number
+    bool findClientByAccountNumber(const string& accountNumber, const vector<stClient>& vClients, stClient& client) {
+        for (const stClient& c : vClients) {
+            if (c.accountNumber == accountNumber) {
+                client = c;
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
