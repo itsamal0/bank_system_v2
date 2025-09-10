@@ -1,6 +1,7 @@
 #include <iostream>
 #include <limits>
 #include "../include/bank_system/client_management.h"
+#include "../../../helpers/io_utils.h"
 using namespace std;
 
 enum enMainMenuOptions {
@@ -23,14 +24,6 @@ void showMainMenu() {
     cout << "[5] Find Client\n";
     cout << "[6] Exit\n";
     cout << "=================================\n";
-}
-
-void exitProgram() {
-    cout << "=================================\n";
-    cout << "          Program ends.\n";
-    cout << "=================================\n";
-    cout << "Press any key to close the program...";
-    system("pause >nul");
 }
 
 bool isValidNumber() {
@@ -90,7 +83,7 @@ void bankSystem() {
             client_management::findClient();
             break;
         case EXIT_PROGRAM:
-            exitProgram();
+            io_utils::exitProgram();
             break;
         }
 
