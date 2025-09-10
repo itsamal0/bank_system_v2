@@ -14,6 +14,8 @@ namespace client_management {
         stClient client;
         char answer = 'n';
 
+        printHeader("Update client screen");
+
         vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
             
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
