@@ -21,5 +21,6 @@ namespace client_management {
     std::vector<stClient> loadClientsDataFromFile(std::string fileName);
     bool findClientByAccountNumber(const std::string& accountNumber, const std::vector<stClient>& vClients, stClient& client);
     void displayClientRecord(const stClient& client);
+    std::vector<stClient> saveClientsDataToFile(const std::string& fileName, const std::vector<stClient>& vClients);
 
 }

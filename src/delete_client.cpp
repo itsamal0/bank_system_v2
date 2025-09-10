@@ -19,22 +19,6 @@ namespace client_management {
         return false;
     }
 
-    // Save all clients back to file
-    vector<stClient> saveClientsDataToFile(const string& fileName, const vector<stClient>& vClients) {
-        fstream myFile(fileName, ios::out);
-
-        if (myFile.is_open()) {
-            for (const stClient& c : vClients) {
-                if (!c.markForDelete) {
-                    myFile << convertRecordToLine(c) << endl;
-                }
-            }
-            myFile.close();
-        }
-
-        return vClients;
-    }
-
     // Delete a client by account number
     void deleteClient() {
         stClient client;
