@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <vector>
 #include "../include/bank_system/client_management.h"
 #include "../../../helpers/io_utils.h"
 using namespace std;
@@ -13,16 +14,22 @@ enum enMainMenuOptions {
     EXIT_PROGRAM = 6
 };
 
-void showMainMenu() {
+vector<string> mainMenuOptions = {
+    "Show Clients List",
+    "Add Client",
+    "Delete Client",
+    "Update Client Info",
+    "Find Client",
+    "Exit"
+};
+
+void showMenu(const string& title, const vector<string>& options) {
     cout << "=================================\n";
-    cout << "          Bank System\n";
+    cout << "          " << title << "\n";
     cout << "=================================\n";
-    cout << "[1] Show Clients List\n";
-    cout << "[2] Add Client\n";
-    cout << "[3] Delete Client\n";
-    cout << "[4] Update Client Info\n";
-    cout << "[5] Find Client\n";
-    cout << "[6] Exit\n";
+    for (int i = 0; i < options.size(); i++) {
+        cout << "[" << i + 1 << "] " << options[i] << "\n";
+    }
     cout << "=================================\n";
 }
 
@@ -49,7 +56,7 @@ void bankSystem() {
     do {
         system("cls");
 
-        showMainMenu();
+        showMenu("Bank System", mainMenuOptions);
         choice = readMenuChoice(1, 6);
 
         system("cls");
