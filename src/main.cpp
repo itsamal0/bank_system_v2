@@ -36,11 +36,11 @@ int readValidChoice(int initialChoice, int minValue, int maxValue) {
     return choice;
 }
 
-int readMenuChoice() {  
+int readMenuChoice(int minValue, int maxValue) {  
     int choice;  
-    cout << "Choose what do you want to do? [1 to 6]: ";  
+    cout << "Choose what do you want to do? [" << minValue << " to " << maxValue << "]: ";  
     cin >> choice;  
-    return readValidChoice(choice);  
+    return readValidChoice(choice, minValue, maxValue);
 }
 
 void bankSystem() {
@@ -50,7 +50,7 @@ void bankSystem() {
         system("cls");
 
         showMainMenu();
-        choice = readMenuChoice();
+        choice = readMenuChoice(1, 6);
 
         system("cls");
 
