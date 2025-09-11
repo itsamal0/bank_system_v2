@@ -26,19 +26,6 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-bool isValidNumber() {
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        return false;
-    }
-    return true;
-}
-
-bool isNumberInRange(int n, int minValue, int maxValue){
-    return n >= minValue && n <= maxValue;
-}
-
 int readValidChoice(int initialChoice) {  
     int choice = initialChoice;  
     while (!isValidNumber() || !isNumberInRange(choice, 1, 6)) {  
