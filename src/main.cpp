@@ -12,7 +12,8 @@ enum enMainMenuOptions {
     DELETE_CLIENT = 3,
     UPDATE_CLIENT = 4,
     FIND_CLIENT = 5,
-    EXIT_PROGRAM = 6
+    TRANSACTIONS = 6,
+    EXIT_PROGRAM = 7
 };
 
 vector<string> mainMenuOptions = {
@@ -21,6 +22,7 @@ vector<string> mainMenuOptions = {
     "Delete Client",
     "Update Client Info",
     "Find Client",
+    "Transactions",
     "Exit"
 };
 
@@ -50,6 +52,9 @@ void bankSystem() {
             break;
         case FIND_CLIENT:
             client_management::findClient();
+            break;
+        case TRANSACTIONS:
+            cout << "Transactions menu screen";
             break;
         case EXIT_PROGRAM:
             io_utils::exitProgram();
