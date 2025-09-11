@@ -26,13 +26,14 @@ void showMainMenu() {
     cout << "=================================\n";
 }
 
-int readValidChoice(int initialChoice) {  
-    int choice = initialChoice;  
-    while (!io_utils::isValidNumber() || !io_utils::isNumberInRange(choice, 1, 6)) {  
-        cout << "Invalid choice! Please enter a valid number between 1 and 6: ";  
-        cin >> choice;  
-    }  
-    return choice;  
+int readValidChoice(int initialChoice, int minValue, int maxValue) {
+    int choice = initialChoice;
+    while (!io_utils::isValidNumber() || !io_utils::isNumberInRange(choice, minValue, maxValue)) {
+        cout << "Invalid choice! Please enter a valid number between "
+             << minValue << " and " << maxValue << ": ";
+        cin >> choice;
+    }
+    return choice;
 }
 
 int readMenuChoice() {  
