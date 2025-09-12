@@ -2,5 +2,5 @@
 
 namespace client_management {
   
-    void findClient();
+    bool findClient(bool showHeader = true);
 }

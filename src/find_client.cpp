@@ -8,20 +8,22 @@ using namespace std;
 
 
 namespace client_management {
-  void findClient(){
+  bool findClient(bool showHeader){
 
-      printHeader("Find client screen");
+      if(showHeader) printHeader("Find client screen");
 
       vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
-      
+
       string accountNumber = io_utils::readString("Please enter account number ? ");
 
       stClient client;
       
       if (findClientByAccountNumber(accountNumber, vClients, client)) {
           displayClientRecord(client);
+          return true;
       } else {
           cout << "\nClient with account number (" << accountNumber << ") is NOT found!\n";
+          return false;
       }
   }
 }
