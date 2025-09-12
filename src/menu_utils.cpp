@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "../include/bank_system/menu_utils.h"
 #include "../../../helpers/io_utils.h"
 using namespace std;
@@ -27,8 +28,10 @@ namespace menu_utils {
 
     int readMenuChoice(int minValue, int maxValue) {  
         int choice;  
-        cout << "Choose what do you want to do? [" << minValue << " to " << maxValue << "]: ";  
+        cout << "Choose what do you want to do? [" << minValue << " to " << maxValue << "]: ";
         cin >> choice;  
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         return readValidChoice(choice, minValue, maxValue);
     }
 }

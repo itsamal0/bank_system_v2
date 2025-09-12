@@ -28,7 +28,6 @@ namespace client_management {
     // Read new client data from user
     stClient readNewClient() {
         stClient newClient;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         newClient.accountNumber   = io_utils::readString("\nEnter account number: ");
         newClient.pinCode         = io_utils::readString("\nEnter pin code: ");
         newClient.name            = io_utils::readString("\nEnter name: ");

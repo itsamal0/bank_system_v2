@@ -28,8 +28,6 @@ namespace client_management {
 
         vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
         
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
         string accountNumber = io_utils::readString("Please enter account number ? ");
 
         if (findClientByAccountNumber(accountNumber, vClients, client)) {

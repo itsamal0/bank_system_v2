@@ -1,6 +1,7 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/client_management.h"
 #include <iostream>
+#include <limits>
 using namespace std;
 
 namespace client_management {
@@ -19,6 +20,7 @@ namespace client_management {
 
             cout << "\nClient added successfully. Add another client? [Y/N]: ";
             cin >> addMore;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         } while (toupper(addMore) == 'Y'); 
     }

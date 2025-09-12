@@ -13,8 +13,7 @@ namespace client_management {
       printHeader("Find client screen");
 
       vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
-
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      
       string accountNumber = io_utils::readString("Please enter account number ? ");
 
       stClient client;
