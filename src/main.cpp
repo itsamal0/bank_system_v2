@@ -4,6 +4,7 @@
 #include "../include/bank_system/client_management.h"
 #include "../../../helpers/io_utils.h"
 #include "../include/bank_system/menu_utils.h"
+#include "../include/bank_system/transactions.h"
 using namespace std;
 
 enum enMainMenuOptions {
@@ -54,7 +55,7 @@ void bankSystem() {
             client_management::findClient();
             break;
         case TRANSACTIONS:
-            cout << "Transactions menu screen";
+            transactions::showTransactionMenu();
             break;
         case EXIT_PROGRAM:
             io_utils::exitProgram();
