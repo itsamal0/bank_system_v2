@@ -62,7 +62,7 @@ void bankSystem() {
             break;
         }
 
-        if (choice != EXIT_PROGRAM) {
+        if (choice != EXIT_PROGRAM && choice != TRANSACTIONS) {
             cout << "\nPress any key to go back to main menu...";
             system("pause >nul");
         }
