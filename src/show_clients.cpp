@@ -8,36 +8,55 @@ using namespace std;
 namespace client_management {
 
     // Print a single client record
-    void printClientRecord(stClient client) {
+    void printClientRecord(stClient client, bool summaryMode) {
+
         cout << "| " << setw(16) << left  << client.accountNumber;
-        cout << "| " << setw(10) << left  << client.pinCode;
+
+        if(!summaryMode) 
+            cout << "| " << setw(10) << left  << client.pinCode;
+
         cout << "| " << setw(20) << left  << client.name;
-        cout << "| " << setw(15) << left  << client.phone;
+
+        if(!summaryMode) 
+            cout << "| " << setw(15) << left  << client.phone;
+
         cout << "| " << setw(10) << left << client.accountBalance;
         cout << endl;
     }
 
     // Print all clients in a formatted table
-    void showClients() {
+    double showClients(bool summaryMode) {
+        double totalBalances = 0;
+
         vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);
         
         if(vClients.size() == 0) {
           cout << "There is no clients yet!\n";
-          return;
+          return 0;
         }
 
         cout << "\n\t\t\t\t\t\tClient list (" << vClients.size() << ") client(s).\n";
 
         cout << "\n| " << setw(16) << left << "Account Number";
-        cout << "| " << setw(10) << left << "Pin Code";
+
+        if(!summaryMode) 
+            cout << "| " << setw(10) << left << "Pin Code";
+
         cout << "| " << setw(20) << left << "Client Name";
-        cout << "| " << setw(15) << left << "Phone";
+
+        if(!summaryMode) 
+            cout << "| " << setw(15) << left << "Phone";
+
         cout << "| " << setw(10) << right << "Balance";
         cout << "\n" << string(100, '_') << "\n\n";
 
         for (stClient& client : vClients) {
-            printClientRecord(client);
+            printClientRecord(client, summaryMode);
             cout << endl;
+
+            if(summaryMode) totalBalances += client.accountBalance;
         }
+
+        return summaryMode ? totalBalances : 0;
     }
 }

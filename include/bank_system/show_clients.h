@@ -2,5 +2,5 @@
 
 namespace client_management {
   
-    void showClients();
+    double showClients(bool summaryMode = false);
 }
