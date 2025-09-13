@@ -8,7 +8,7 @@ using namespace std;
 
 
 namespace client_management {
-  bool findClient(bool showHeader){
+  string findClient(bool showHeader){
 
       if(showHeader) printHeader("Find client screen");
 
@@ -20,10 +20,10 @@ namespace client_management {
       
       if (findClientByAccountNumber(accountNumber, vClients, client)) {
           displayClientRecord(client);
-          return true;
+          return client.accountNumber;
       } else {
           cout << "\nClient with account number (" << accountNumber << ") is NOT found!\n";
-          return false;
+          return "";
       }
   }
 }

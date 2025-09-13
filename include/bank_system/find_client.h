@@ -1,6 +1,7 @@
 #pragma once
+#include <string>
 
 namespace client_management {
   
-    bool findClient(bool showHeader = true);
+    std::string findClient(bool showHeader = true);
 }
