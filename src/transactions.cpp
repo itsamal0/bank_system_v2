@@ -139,7 +139,9 @@ namespace transactions
     }
     void totalBalances()
     {
-        cout << "Show balances selected (logic to be implemented)\n";
+        double totalBalances = client_management::showClients(true);
+
+        cout << "\n\n\t\t\t\t\tTotal balances = " << totalBalances << endl;
     }
 
 }
