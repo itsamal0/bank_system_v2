@@ -52,7 +52,7 @@ namespace transactions
         cin >> answer;
         return toupper(answer) == 'Y';
     }
-    
+
     // Update only the balance of a client by account number
     void updateClientBalance(string accountNumber, string actionType, double amount)
     {
@@ -73,6 +73,15 @@ namespace transactions
         saveClientsDataToFile(client_management::clientsFileName, vClients);
         cout << "\n\nBalance updated successfully.\n";
         return;
+    }
+
+    void processTransaction(const string &actionType)
+    {
+        string accountNumber = chooseClient();
+        double amount = readTransactionAmount(actionType);
+
+        if (confirmTransaction())
+            updateClientBalance(accountNumber, actionType, amount);
     }
 
     void showTransactionMenu()
