@@ -37,6 +37,8 @@ namespace client_management {
 
         cout << "\n\t\t\t\t\t\tClient list (" << vClients.size() << ") client(s).\n";
 
+        cout << "\n" << string(100, '_') << "\n";
+
         cout << "\n| " << setw(16) << left << "Account Number";
 
         if(!summaryMode) 
@@ -56,6 +58,8 @@ namespace client_management {
 
             if(summaryMode) totalBalances += client.accountBalance;
         }
+        
+        cout << "\n" << string(100, '_') << "\n";
 
         return summaryMode ? totalBalances : 0;
     }
