@@ -135,6 +135,7 @@ namespace transactions
     void withdraw()
     {
         client_management::printHeader("Withdraw screen");
+        processTransaction("withdraw");
     }
     void totalBalances()
     {
