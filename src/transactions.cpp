@@ -129,6 +129,7 @@ namespace transactions
     void deposit()
     {
         client_management::printHeader("Deposit screen");
+        processTransaction("deposit");
     }
 
     void withdraw()
