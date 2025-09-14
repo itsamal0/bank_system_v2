@@ -42,7 +42,7 @@ namespace transactions
 
     double readTransactionAmount(const string &actionType)
     {
-        return io_utils::readPositiveNumber("\n\nPlease enter " + actionType + " amount? ");
+        return io_utils::readPositiveValue<double>("\n\nPlease enter " + actionType + " amount? ");
     }
 
     bool confirmTransaction()

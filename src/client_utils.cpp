@@ -32,7 +32,7 @@ namespace client_management {
         newClient.pinCode         = io_utils::readString("\nEnter pin code: ");
         newClient.name            = io_utils::readString("\nEnter name: ");
         newClient.phone           = io_utils::readString("\nEnter phone number: ");
-        newClient.accountBalance  = io_utils::readPositiveNumber("\nEnter account balance: ");
+        newClient.accountBalance  = io_utils::readPositiveValue<double>("\nEnter account balance: ");
         return newClient;
     }
 
