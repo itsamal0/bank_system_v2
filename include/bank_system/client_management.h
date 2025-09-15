@@ -7,5 +7,5 @@
 #include <string>
 
 namespace client_management {
-    const std::string clientsFileName = "clients.txt";
+    const std::string clientsFileName = "data/clients.txt";
 }
