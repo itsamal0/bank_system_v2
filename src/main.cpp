@@ -71,6 +71,7 @@ void bankSystem() {
 }
 
 int main() {
+    system("cls");
     bankSystem();
     return 0;
 }
