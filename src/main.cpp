@@ -5,6 +5,7 @@
 #include "../include/helpers/io_utils.h"
 #include "../include/bank_system/menu_utils.h"
 #include "../include/bank_system/transactions.h"
+#include "../include/bank_system/identity.h"
 using namespace std;
 
 enum enMainMenuOptions {
@@ -27,7 +28,7 @@ vector<string> mainMenuOptions = {
     "Exit"
 };
 
-void bankSystem() {
+void showMainMenu() {
     int choice = 0;
 
     do {
@@ -68,6 +69,13 @@ void bankSystem() {
         }
 
     } while (choice != EXIT_PROGRAM);
+}
+
+void bankSystem() {
+    bool loginSuccessful = identity::login();
+
+    if (loginSuccessful)
+        showMainMenu();
 }
 
 int main() {
