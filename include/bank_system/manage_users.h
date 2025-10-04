@@ -7,4 +7,5 @@ namespace manage_users {
     void addUser();
     void deleteUser();
     void updateUser();
+    bool findUser();
 }

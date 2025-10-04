@@ -50,7 +50,7 @@ namespace manage_users {
                     manage_users::updateUser();
                     break;
                 case FIND_USER:
-                    cout << "\nFind user\n";
+                    manage_users::findUser();
                     break;
             }
 
