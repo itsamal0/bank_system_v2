@@ -38,7 +38,7 @@ namespace manage_users {
 
             switch (choice) {
                 case LIST_USERS:
-                    cout << "\nShow users\n";
+                    manage_users::showUsers();
                     break;
                 case ADD_USER:
                     cout << "\nAdd user\n";

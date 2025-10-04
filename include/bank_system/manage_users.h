@@ -3,4 +3,5 @@
 
 namespace manage_users {
     void showManageUsersMenu();
+    void showUsers();
 }
