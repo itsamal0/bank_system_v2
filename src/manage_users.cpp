@@ -47,7 +47,7 @@ namespace manage_users {
                     manage_users::deleteUser();
                     break;
                 case UPDATE_USER:
-                    cout << "\nUpdate user\n";
+                    manage_users::updateUser();
                     break;
                 case FIND_USER:
                     cout << "\nFind user\n";

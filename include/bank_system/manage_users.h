@@ -6,4 +6,5 @@ namespace manage_users {
     void showUsers();
     void addUser();
     void deleteUser();
+    void updateUser();
 }
