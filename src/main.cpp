@@ -6,6 +6,7 @@
 #include "../include/bank_system/menu_utils.h"
 #include "../include/bank_system/transactions.h"
 #include "../include/bank_system/identity.h"
+#include "../include/bank_system/manage_users.h"
 using namespace std;
 
 enum enMainMenuOptions {
@@ -15,7 +16,8 @@ enum enMainMenuOptions {
     UPDATE_CLIENT = 4,
     FIND_CLIENT = 5,
     TRANSACTIONS = 6,
-    EXIT_PROGRAM = 7
+    MANAGE_USERS = 7,
+    EXIT_PROGRAM = 8
 };
 
 vector<string> mainMenuOptions = {
@@ -25,7 +27,8 @@ vector<string> mainMenuOptions = {
     "Update Client Info",
     "Find Client",
     "Transactions",
-    "Exit"
+    "Manage Users",
+    "Logout"
 };
 
 void showMainMenu() {
@@ -58,12 +61,15 @@ void showMainMenu() {
         case TRANSACTIONS:
             transactions::showTransactionMenu();
             break;
+        case MANAGE_USERS:
+            manage_users::showManageUsersMenu();
+            break;
         case EXIT_PROGRAM:
             io_utils::exitProgram();
             break;
         }
 
-        if (choice != EXIT_PROGRAM && choice != TRANSACTIONS) {
+        if (choice != EXIT_PROGRAM && choice != TRANSACTIONS && choice != MANAGE_USERS) {
             cout << "\nPress any key to go back to main menu...";
             system("pause >nul");
         }
