@@ -1,6 +1,7 @@
 #include "../include/helpers/io_utils.h"
 #include "../include/helpers/string_utils.h"
 #include "../include/bank_system/identity.h"
+#include "../include/bank_system/user_utils.h" 
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -29,8 +30,18 @@ namespace user_utils {
         return newUser;
     }
 
+    // Convert a user struct to a single line string with separator
+    string convertUserRecordToLine(stUser user, string separator) {
+        string stUserRecord = "";
+        stUserRecord += user.username + separator;
+        stUserRecord += user.password + separator;
+        stUserRecord += to_string(user.permissions);
+        return stUserRecord;
+    }
+
+
     // Load users data from file into a vector
-    vector<stUser> loadClientsDataFromFile(string fileName) {
+    vector<stUser> loadUsersDataFromFile(string fileName) {
         vector<stUser> vUsers;
         fstream myFile;
         myFile.open(fileName, ios::in);
@@ -108,11 +119,37 @@ namespace user_utils {
 
         cout << "\nManage users? [y/n]: ";
         cin >> answer;
-        
+
         if (toupper(answer) == 'Y')
             permissions += identity::PERM_MANAGE_USERS;
 
         return permissions;
+    }
+
+    // Read new user data from user
+    stUser readNewUser() {
+        stUser newUser;
+        bool userExists = false;
+
+        vector<stUser> vUsers = loadUsersDataFromFile(usersFileName);
+        stUser foundUser;
+
+        do {
+            newUser.username = io_utils::readString("\nEnter username: ");
+
+            userExists = findUserByUsername(newUser.username, vUsers, foundUser);
+
+            if (userExists) {
+                cout << "\nUser with [" << newUser.username << "] already exists, enter another username.\n";
+            }
+
+        } while (userExists);
+
+        newUser.password = io_utils::readString("\nEnter password: ");
+        newUser.permissions = setUserPermissions();
+        newUser.markForDelete = false;
+
+        return newUser;
     }
 
 }

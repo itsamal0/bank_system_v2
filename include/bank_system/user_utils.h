@@ -7,7 +7,9 @@ namespace user_utils {
     const string usersFileName = "data/users.txt";
     identity::stUser readUserInput();
     identity::stUser convertLineToUserRecord(string str, string separator);
-    vector<identity::stUser> loadClientsDataFromFile(string fileName);
+    string convertUserRecordToLine(identity::stUser user, string separator);
+    vector<identity::stUser> loadUsersDataFromFile(string fileName);
     bool findUserByUsername(const string &username, const vector<identity::stUser> &vUsers, identity::stUser &user);
     int setUserPermissions();
+    identity::stUser readNewUser();
 }

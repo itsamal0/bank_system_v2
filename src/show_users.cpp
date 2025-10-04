@@ -15,7 +15,7 @@ namespace manage_users {
     }
 
     void showUsers() {
-        vector<identity::stUser> vUsers = user_utils::loadClientsDataFromFile(user_utils::usersFileName);
+        vector<identity::stUser> vUsers = user_utils::loadUsersDataFromFile(user_utils::usersFileName);
 
         if (vUsers.empty()) {
             cout << "There are no users yet!\n";
