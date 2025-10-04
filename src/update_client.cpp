@@ -1,6 +1,7 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/client_management.h"
 #include "../include/helpers/io_utils.h"
+#include "../include/bank_system/user_utils.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -11,6 +12,11 @@ namespace client_management {
 
     // Update a client by account number
     void updateClient() {
+        if (!user_utils::hasPermission(identity::PERM_UPDATE_CLIENTS)) {
+            user_utils::showAccessDeniedMsg();
+            return;
+        }
+
         stClient client;
         char answer = 'n';
 

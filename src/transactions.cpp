@@ -5,6 +5,7 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/client_management.h"
 #include "../include/helpers/io_utils.h"
+#include "../include/bank_system/user_utils.h"
 #include <string>
 using namespace std;
 
@@ -86,6 +87,13 @@ namespace transactions
 
     void showTransactionMenu()
     {
+        if (!user_utils::hasPermission(identity::PERM_TRANSACTIONS)) {
+            user_utils::showAccessDeniedMsg();
+            cout << "\nPress any key to go back to main menu...";
+            system("pause >nul");
+            return;
+        }
+
         int choice = 0;
         do
         {

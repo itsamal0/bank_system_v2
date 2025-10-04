@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "identity.h"
 using namespace std;
 
 namespace user_utils {
@@ -14,4 +15,6 @@ namespace user_utils {
     void displayUserRecord(const identity::stUser &user);
     int setUserPermissions();
     identity::stUser readNewUser();
+    bool hasPermission(identity::enPermissions permission);
+    void showAccessDeniedMsg();
 }

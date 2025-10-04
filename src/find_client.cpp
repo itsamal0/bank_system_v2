@@ -1,6 +1,7 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/client_management.h"
 #include "../include/helpers/io_utils.h"
+#include "../include/bank_system/user_utils.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
@@ -9,6 +10,10 @@ using namespace std;
 
 namespace client_management {
   string findClient(bool showHeader){
+      if (!user_utils::hasPermission(identity::PERM_FIND_CLIENTS)) {
+         user_utils::showAccessDeniedMsg();
+         return "";
+      }
 
       if(showHeader) printHeader("Find client screen");
 

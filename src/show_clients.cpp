@@ -1,6 +1,7 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/show_clients.h"
 #include "../include/bank_system/client_management.h"
+#include "../include/bank_system/user_utils.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -26,6 +27,11 @@ namespace client_management {
 
     // Print all clients in a formatted table
     double showClients(bool summaryMode) {
+        if (!user_utils::hasPermission(identity::PERM_SHOW_CLIENTS)) {
+            user_utils::showAccessDeniedMsg();
+            return 0;
+        }
+
         double totalBalances = 0;
 
         vector<stClient> vClients = loadClientsDataFromFile(clientsFileName);

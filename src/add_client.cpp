@@ -1,5 +1,6 @@
 #include "../include/bank_system/client_utils.h"
 #include "../include/bank_system/client_management.h"
+#include "../include/bank_system/user_utils.h"
 #include <iostream>
 #include <limits>
 using namespace std;
@@ -8,6 +9,11 @@ namespace client_management {
   
     // Add a new client and save to file
     void addClient() {
+        if (!user_utils::hasPermission(identity::PERM_ADD_CLIENT)) {
+            user_utils::showAccessDeniedMsg();
+            return;
+        }
+
         char addMore = 'Y';
 
         do {

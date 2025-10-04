@@ -178,4 +178,18 @@ namespace user_utils {
         return newUser;
     }
 
+    bool hasPermission(identity::enPermissions permission) {
+        if (permission == identity::enPermissions::PERM_ALL || (identity::currentUser.permissions & permission)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    void showAccessDeniedMsg(){
+        cout << "\n----------------------------------------------\n";
+        cout << "\nAccess denied, \nYou don't have permission to do this, \nPlease contact your admin.\n";
+        cout << "\n----------------------------------------------\n";
+    }
+
 }

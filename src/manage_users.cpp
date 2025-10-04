@@ -3,6 +3,7 @@
 #include <string>
 #include "../include/bank_system/manage_users.h"
 #include "../include/bank_system/menu_utils.h"
+#include "../include/bank_system/user_utils.h"
 using namespace std;
 
 namespace manage_users {
@@ -25,8 +26,14 @@ namespace manage_users {
     };
 
     void showManageUsersMenu() {
-        int choice = 0;
+        if (!user_utils::hasPermission(identity::PERM_MANAGE_USERS)) {
+            user_utils::showAccessDeniedMsg();
+            cout << "\nPress any key to go back to main menu...";
+            system("pause >nul");
+            return;
+        }
 
+        int choice = 0;
         do {
             system("cls");
 
