@@ -68,6 +68,32 @@ namespace user_utils {
         return false;
     }
 
+    // Save all users back to file
+    vector<stUser> saveUsersDataToFile(const string &fileName, const vector<stUser> &vUsers) {
+        fstream myFile(fileName, ios::out);
+
+        if (myFile.is_open()) {
+            for (const stUser &u : vUsers) {
+                if (!u.markForDelete) {
+                    myFile << convertUserRecordToLine(u, "#//#") << endl;
+                }
+            }
+            myFile.close();
+        }
+
+        return vUsers;
+    }
+
+    // Print a single user record
+    void displayUserRecord(const stUser &user) {
+        cout << "\n\nThe following are the user details:\n";
+        cout << "****************************************";
+        cout << "\nUsername       : " << user.username;
+        cout << "\nPassword       : " << user.password;
+        cout << "\nPermissions    : " << user.permissions;
+        cout << "\n****************************************\n";
+    }
+
     int setUserPermissions() {
         char answer = 'N';
         int permissions = 0;
