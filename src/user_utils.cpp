@@ -57,4 +57,62 @@ namespace user_utils {
         return false;
     }
 
+    int setUserPermissions() {
+        char answer = 'N';
+        int permissions = 0;
+
+        cout << "\nDo you want to give full access? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y') {
+            return identity::PERM_ALL;
+        }
+
+        cout << "\nDo you want to give access to: \n";
+
+        cout << "\nShow client list? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_SHOW_CLIENTS;
+
+        cout << "\nAdd client? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_ADD_CLIENT;
+
+        cout << "\nDelete client? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_DELETE_CLIENTS;
+
+        cout << "\nUpdate client info? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_UPDATE_CLIENTS;
+
+        cout << "\nFind client? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_FIND_CLIENTS;
+
+        cout << "\nTransactions? [y/n]: ";
+        cin >> answer;
+
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_TRANSACTIONS;
+
+        cout << "\nManage users? [y/n]: ";
+        cin >> answer;
+        
+        if (toupper(answer) == 'Y')
+            permissions += identity::PERM_MANAGE_USERS;
+
+        return permissions;
+    }
+
 }

@@ -9,4 +9,5 @@ namespace user_utils {
     identity::stUser convertLineToUserRecord(string str, string separator);
     vector<identity::stUser> loadClientsDataFromFile(string fileName);
     bool findUserByUsername(const string &username, const vector<identity::stUser> &vUsers, identity::stUser &user);
+    int setUserPermissions();
 }
